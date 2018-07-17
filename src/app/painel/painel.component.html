@@ -2,7 +2,8 @@
     <div class="jumbotron">
         <div class="row">
           <div class="col-sm-6">
-            <app-progresso></app-progresso>
+            <!-- enviando paramentro progresso do component painel para o component progresso -->
+            <app-progresso [progresso]="progresso"></app-progresso>
           </div>
           <div class="col-sm-6">
               <div class="d-flex justify-content-end">
@@ -13,10 +14,14 @@
         
         <div class="row">
           <div class="col">
-            <h6>Traduza a frase:</h6>
-             <p>How are you?</p>
+            <h6>{{instrucao}}</h6>
+             <p>{{rodadaFrase.fraseEng}}</p>
              <div class="form-group">
-              <textarea class="form-control" rows="3"></textarea>
+              <textarea 
+                class="form-control" 
+                rows="3"
+                (input)="atualizaResposta($event)"
+              ></textarea>
             </div>
           </div>
         </div>
@@ -24,7 +29,10 @@
         <div class="row">
             <div class="col">
               <div class="d-flex justify-content-end">
-                  <button class="btn btn-primary">Verificar</button>
+                  <button 
+                    class="btn btn-primary" 
+                    (click)="verificaResposta()"
+                  >Verificar</button>
               </div>
             </div>
           </div>
