@@ -7,7 +7,8 @@
           </div>
           <div class="col-sm-6">
               <div class="d-flex justify-content-end">
-                <app-tentativas></app-tentativas>
+                <!-- encaminha as tentativas de painel.ts para tentativas.ts por property binding e @input -->
+                <app-tentativas [tentativas]="tentativas"></app-tentativas>
               </div>
           </div>
         </div>
@@ -20,7 +21,8 @@
               <textarea 
                 class="form-control" 
                 rows="3"
-                (input)="atualizaResposta($event)"
+                (input)="atualizaResposta($event)" 
+                [value]="resposta"
               ></textarea>
             </div>
           </div>
